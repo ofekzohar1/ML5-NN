@@ -4,6 +4,14 @@ import matplotlib.pyplot as plt
 
 
 def myplot(X, Ys, xlabel, ylabel, rates):
+    """
+    Plot all (x,y) for all Y in Ys in the same plot
+    :param X: x values
+    :param Ys: list of y values
+    :param xlabel: x axis label
+    :param ylabel: y axis label
+    :param rates: SGD's learning rates
+    """
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     for i,Y in enumerate(Ys):
@@ -32,15 +40,15 @@ def b():
 
 
 def c():
-    training_data, test_data = backprop_data.load(train_size=10000, test_size=5000)
+    training_data, test_data = backprop_data.load(train_size=50000, test_size=10000)
     net = backprop_network.Network([784, 40, 10])
     net.SGD(training_data, epochs=30, mini_batch_size=10, learning_rate=0.1, test_data=test_data)
     print(net.one_label_accuracy(test_data))
 
 
 def main():
-    #b()
-    c()
+    b()
+    # c()
 
 
 if __name__ == "__main__":
